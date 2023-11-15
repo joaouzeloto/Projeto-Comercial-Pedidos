@@ -86,6 +86,9 @@
       <font>
          <Font size="15.0" />
       </font>
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin>
    </TextField>
    <Label text="Cep">
       <font>
@@ -96,6 +99,9 @@
       <font>
          <Font size="15.0" />
       </font>
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin>
    </TextField>
    <Label text="UF">
       <font>
@@ -106,6 +112,9 @@
       <font>
          <Font size="15.0" />
       </font>
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin>
    </TextField>
    <Label text="E-mail">
       <font>
@@ -116,6 +125,9 @@
       <font>
          <Font size="15.0" />
       </font>
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin>
    </TextField>
    <HBox prefHeight="100.0" prefWidth="200.0" />
    <HBox alignment="CENTER" prefHeight="38.0" prefWidth="479.0" spacing="80.0">

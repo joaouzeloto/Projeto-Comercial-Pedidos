@@ -19,7 +19,6 @@ public class ClienteCadViewController implements Initializable {
     public TextField tfCep;
     public TextField tfUf;
     public TextField tfEmail;
-    public TextField tfTelefone;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

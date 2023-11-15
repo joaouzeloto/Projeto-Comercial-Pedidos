@@ -9,10 +9,10 @@ public class DBSingleton {
     public static boolean conectar()
     {
         conexao=new Conexao();
-        return conexao.conectar("jdbc:postgresql://localhost/",
-                "bancoInterfaces",
-                "postgres",
-                "262216698");
+        return conexao.conectar("jdbc:projeto-comercial-java.cjkoamzskotm.us-east-1.rds.amazonaws.com",
+                "projeto-comercial-java",
+                "admsqlfipp",
+                "93yrRktC9e");
     }
     public static Conexao getConexao() {
         return conexao;
