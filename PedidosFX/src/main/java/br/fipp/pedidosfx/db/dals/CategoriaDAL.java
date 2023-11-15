@@ -63,4 +63,7 @@ public class CategoriaDAL implements IDAL<Categoria> {
         }catch(Exception e) { System.out.println(e); }
         return categorias;
     }
+
+    public void gravar(String nome, String descricao) {
+    }
 }
