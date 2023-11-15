@@ -6,13 +6,12 @@ public class DBSingleton {
     private DBSingleton() {
     }
 
-    public static boolean conectar()
-    {
-        conexao=new Conexao();
-        return conexao.conectar("jdbc:postgresql://localhost/",
-                "bancoInterfaces",
+    public static boolean conectar() {
+        conexao = new Conexao();
+        return conexao.conectar("jdbc:postgresql://projeto-comercial-java.cjkoamzskotm.us-east-1.rds.amazonaws.com:5432/",
                 "postgres",
-                "262216698");
+                "admsqlfipp",
+                "93yrRktC9e");
     }
     public static Conexao getConexao() {
         return conexao;
