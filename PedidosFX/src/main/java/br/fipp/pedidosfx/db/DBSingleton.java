@@ -10,9 +10,9 @@ public class DBSingleton {
     {
         conexao=new Conexao();
         return conexao.conectar("jdbc:postgresql://localhost/",
-                "pedidosdb",
+                "bancoInterfaces",
                 "postgres",
-                "postgres123");
+                "262216698");
     }
     public static Conexao getConexao() {
         return conexao;

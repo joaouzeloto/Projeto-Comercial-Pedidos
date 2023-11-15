@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.StringTemplate.STR;
 
 public class CategoriaDAL implements IDAL<Categoria> {
 
