@@ -1,9 +1,11 @@
 package br.fipp.pedidosfx.db.dals;
 
+import br.fipp.pedidosfx.db.Conexao;
 import br.fipp.pedidosfx.db.DBSingleton;
 import br.fipp.pedidosfx.db.entidades.Categoria;
 import br.fipp.pedidosfx.db.entidades.Cliente;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +13,20 @@ import java.util.List;
 
 public class CategoriaDAL implements IDAL<Categoria> {
 
+
     @Override
     public boolean gravar(Categoria entidade) {
-        String sql=String.format("INSERT INTO categorias(cat_nome, cat_desc) VALUES (%s,%s)",
-                                  entidade.getNome(),entidade.getDescricao());
+        if (DBSingleton.conectar()) {
+            String sql = String.format("INSERT INTO categorias(cat_nome, cat_desc) VALUES ('%s', '%s')",
+                    entidade.getNome(), entidade.getDescricao());
 
-//        String sql2=STR.process(
-//        "INSERT INTO categorias(cat_nome, cat_desc) VALUES (\{entidade.getNome()},\{entidade.getDescricao()})");
-        return DBSingleton.getConexao().manipular(sql);
+            boolean resultado = DBSingleton.getConexao().manipular(sql);
+
+            return resultado;
+        } else {
+            System.out.println("Erro na conexão: ");
+            return false;
+        }
     }
 
     @Override
