@@ -21,10 +21,17 @@ public class CategoriaDAL implements IDAL<Categoria> {
                     entidade.getNome(), entidade.getDescricao());
 
             boolean resultado = DBSingleton.getConexao().manipular(sql);
+            String mensagemErro = DBSingleton.getConexao().getMensagemErro();
 
-            return resultado;
+            if (resultado) {
+                System.out.println("Operação realizada com sucesso");
+                return resultado;
+            } else {
+                System.out.println("Erro na operação: " + mensagemErro);
+                return false;
+            }
         } else {
-            System.out.println("Erro na conexão: ");
+            System.out.println("Erro na conexão");
             return false;
         }
     }
