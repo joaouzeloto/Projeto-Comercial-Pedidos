@@ -8,6 +8,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteDAL {
+
+    public boolean gravar(Cliente entidade)
+    {
+        if (DBSingleton.conectar()) {
+            String sql = String.format("INSERT INTO clientes(cli_documento, cli_nome, cli_endereco,cli_bairro, cli_cidade, cli_cep, cli_uf, cli_email) VALUES ('%d','%s', '%s','%s', '%s','%s', '%s','%s')",
+                    entidade.getDocumento(),entidade.getNome(), entidade.getEndereco(),entidade.getBairro(),entidade.getCidade(),entidade.getCep(),entidade.getUf(),entidade.getEmail());
+
+            boolean resultado = DBSingleton.getConexao().manipular(sql);
+            String mensagemErro = DBSingleton.getConexao().getMensagemErro();
+
+            if (resultado) {
+                System.out.println("Operação realizada com sucesso");
+                return resultado;
+            } else {
+                System.out.println("Erro na operação: " + mensagemErro);
+                return false;
+            }
+        } else {
+            System.out.println("Erro na conexão");
+            return false;
+        }
+
+    }
+
+
     public List<Cliente> get (String filtro)
     {   String sql="select * from clientes";
         if(!filtro.isEmpty())

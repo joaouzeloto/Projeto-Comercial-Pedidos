@@ -27,13 +27,14 @@ public class ClienteViewController implements Initializable {
     public TableColumn <Cliente,Integer> colID;
     public TableColumn <Cliente, String> colNome;
     public TableColumn <Cliente, String> colCidade;
-    public TableColumn <Cliente, String> colTelefone;
+    public TableColumn <Cliente, String> colDocumento;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colCidade.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+        colDocumento.setCellValueFactory(new PropertyValueFactory<>("documento"));
         preencherTabela("");
     }
     private void preencherTabela(String filtro)

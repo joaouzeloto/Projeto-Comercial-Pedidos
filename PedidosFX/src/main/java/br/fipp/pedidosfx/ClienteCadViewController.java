@@ -1,5 +1,7 @@
 package br.fipp.pedidosfx;
 
+import br.fipp.pedidosfx.db.dals.CategoriaDAL;
+import br.fipp.pedidosfx.db.dals.ClienteDAL;
 import br.fipp.pedidosfx.db.entidades.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -25,8 +27,9 @@ public class ClienteCadViewController implements Initializable {
 
     }
     public void onConfirmar(ActionEvent actionEvent) {
-        // salvar ou alterar o cliente
-
+        Cliente c1 = new Cliente(0,Long.parseLong(tfDocumento.getText()),tfNome.getText(),tfEndereco.getText(),tfBairro.getText(),tfCidade.getText(),tfCep.getText(),tfUf.getText(),tfEmail.getText());
+        ClienteDAL c2 = new ClienteDAL();
+        System.out.println(c2.gravar(c1));
         ((Button)actionEvent.getSource()).getScene().getWindow().hide();
     }
 

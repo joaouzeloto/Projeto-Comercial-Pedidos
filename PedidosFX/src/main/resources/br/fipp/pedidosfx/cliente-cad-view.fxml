@@ -8,23 +8,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="625.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.ClienteCadViewController">
+<VBox prefHeight="579.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.ClienteCadViewController">
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
-   <Label text="ID">
-      <font>
-         <Font name="System Bold" size="14.0" />
-      </font>
-   </Label>
-   <TextField fx:id="tfId">
-      <font>
-         <Font size="15.0" />
-      </font>
-      <VBox.margin>
-         <Insets bottom="10.0" />
-      </VBox.margin>
-   </TextField>
    <Label layoutX="20.0" layoutY="20.0" text="Documento">
       <font>
          <Font name="System Bold" size="14.0" />
@@ -129,7 +116,7 @@
          <Insets bottom="10.0" />
       </VBox.margin>
    </TextField>
-   <HBox prefHeight="100.0" prefWidth="200.0" />
+   <HBox prefHeight="20.0" prefWidth="479.0" />
    <HBox alignment="CENTER" prefHeight="38.0" prefWidth="479.0" spacing="80.0">
       <children>
          <Button mnemonicParsing="false" onAction="#onConfirmar" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: lightblue;" text="Confirmar">

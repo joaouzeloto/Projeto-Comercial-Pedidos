@@ -25,9 +25,8 @@ public class CategoriaCadViewController extends Application {
 
     public void onConfirmar(ActionEvent actionEvent) {
         Categoria cat1 = new Categoria(tfCategoria.getText(),tfDescricao.getText());
-        System.out.println(cat1.getNome() + " " +cat1.getDescricao());
         CategoriaDAL cat2 = new CategoriaDAL();
-        cat2.gravar(cat1);
+        System.out.println(cat2.gravar(cat1));
         ((Button)actionEvent.getSource()).getScene().getWindow().hide();
     }
 
