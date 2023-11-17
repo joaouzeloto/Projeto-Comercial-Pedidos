@@ -9,9 +9,27 @@ public class ProdutoDAL implements IDAL<Produto>{
 
     @Override
     public boolean gravar(Produto entidade) {
-        String sql=String.format("INSERT INTO produtos(pro_nome, pro_preco, pro_estoque, cat_id) VALUES (%d, '%s', %f, %d, %d)",
-                entidade.getNome(),entidade.getPreco(),entidade.getEstoque(),entidade.getCategoria().getId());
-        return DBSingleton.getConexao().manipular(sql);
+        if (DBSingleton.conectar())
+        {
+            String sql = String.format("INSERT INTO produtos(pro_nome, pro_preco, pro_estoque, cat_id) VALUES ('%s', '%f', '%d', '%d')",
+                    entidade.getNome(), entidade.getPreco(), entidade.getEstoque(), entidade.getCategoria().getId());
+            boolean resultado = DBSingleton.getConexao().manipular(sql);
+            String mensagemErro = DBSingleton.getConexao().getMensagemErro();
+
+            if (resultado) {
+                System.out.println("Operação realizada com sucesso");
+                return resultado;
+            } else {
+                System.out.println("Erro na operação: " + mensagemErro);
+                return false;
+            }
+
+        }
+        else
+        {
+            System.out.println("Erro na conexão");
+            return false;
+        }
     }
 
     @Override

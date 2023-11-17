@@ -19,7 +19,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" onAction="#onNovoCliente" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="+">
+            <Button mnemonicParsing="false" onAction="#onNovoProduto" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: orange;" text="+">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

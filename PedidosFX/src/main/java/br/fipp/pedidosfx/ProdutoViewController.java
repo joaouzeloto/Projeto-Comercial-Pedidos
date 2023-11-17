@@ -29,7 +29,7 @@ public class ProdutoViewController implements Initializable {
 
     }
 
-    public void onNovoCliente(ActionEvent actionEvent) throws IOException {
+    public void onNovoProduto(ActionEvent actionEvent) throws IOException {
         abrirCadCliente();
 
     }
@@ -48,10 +48,10 @@ public class ProdutoViewController implements Initializable {
         ((Button)actionEvent.getSource()).getScene().getWindow().hide();
     }
     private void abrirCadCliente() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cliente-cad-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("produto-cad-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage=new Stage();
-        stage.setTitle("Clientes");
+        stage.setTitle("Produto");
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();

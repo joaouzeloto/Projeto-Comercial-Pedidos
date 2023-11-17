@@ -16,7 +16,8 @@ public class CategoriaDAL implements IDAL<Categoria> {
 
     @Override
     public boolean gravar(Categoria entidade) {
-        if (DBSingleton.conectar()) {
+        if (DBSingleton.conectar())
+        {
             String sql = String.format("INSERT INTO categorias(cat_nome, cat_desc) VALUES ('%s', '%s')",
                     entidade.getNome(), entidade.getDescricao());
 
