@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.NovoPedidoViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.NovoPedidoViewController">
    <children>
       <TitledPane animated="false" collapsible="false" prefHeight="132.0" prefWidth="943.0" style="-fx-border-color: black; -fx-border-width: 1;" text="DADOS DO PEDIDO">
         <content>
@@ -112,7 +112,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Spinner fx:id="spQuantidade" layoutX="436.0" layoutY="56.0" prefHeight="30.0" style="-fx-text-size: 14;" />
+                  <Spinner fx:id="spQuantidade" layoutX="436.0" layoutY="56.0" onMouseClicked="#onAdicionar" prefHeight="30.0" style="-fx-text-size: 14;" />
                   <Button layoutX="839.0" layoutY="97.0" mnemonicParsing="false" onAction="#onInserirProduto" prefHeight="27.0" prefWidth="40.0" style="-fx-background-color: royalblue;" text="+">
                      <font>
                         <Font size="13.0" />

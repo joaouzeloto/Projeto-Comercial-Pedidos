@@ -1,5 +1,6 @@
 package br.fipp.pedidosfx;
 
+import br.fipp.pedidosfx.db.dals.CategoriaDAL;
 import br.fipp.pedidosfx.db.dals.ClienteDAL;
 import br.fipp.pedidosfx.db.dals.ProdutoDAL;
 import br.fipp.pedidosfx.db.entidades.Categoria;
@@ -70,14 +71,26 @@ public class ProdutoViewController implements Initializable {
     }
 
     public void onPesquisar(KeyEvent keyEvent) {
+        String filtro=tfPesquisa.getText().toUpperCase();
+        preencherTabela("upper(pro_nome) like '%"+filtro+"%'");
     }
 
     public void onAlterar(ActionEvent actionEvent) throws IOException {
+        produto = tableView.getSelectionModel().getSelectedItem();
         abrirProduto();
         preencherTabela("");
+        produto = null;
     }
 
-    public void onApagar(ActionEvent actionEvent) {
+    public void onApagar(ActionEvent actionEvent)
+    {
+        Produto prod = tableView.getSelectionModel().getSelectedItem();
+        if(prod!=null)
+        {
+            //perguntar se deseja apagar realmente
+            new ProdutoDAL().apagar(prod);
+            preencherTabela("");
+        }
     }
 
     public void onFechar(ActionEvent actionEvent) {
@@ -93,6 +106,4 @@ public class ProdutoViewController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
-
-
 }

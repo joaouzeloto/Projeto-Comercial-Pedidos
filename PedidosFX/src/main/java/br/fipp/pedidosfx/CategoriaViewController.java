@@ -69,6 +69,8 @@ public class CategoriaViewController extends Application implements Initializabl
     }
 
     public void onPesquisarC(KeyEvent keyEvent) {
+        String filtro=tfPesquisa.getText().toUpperCase();
+        preencherTabela("upper(cat_nome) like '%"+filtro+"%'");
     }
 
     public void onNovaCategoria(ActionEvent actionEvent) throws IOException {

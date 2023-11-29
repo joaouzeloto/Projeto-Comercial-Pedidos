@@ -14,7 +14,7 @@ public class ProdutoDAL implements IDAL<Produto>{
     @Override
     public boolean gravar(Produto entidade) {
         String preco = String.format("%.2f", entidade.getPreco()).replace(",", ".");
-        String sql=String.format("INSERT INTO produtos(pro_nome, pro_preco, pro_estoque, cat_id) VALUES ('%s', %s, %.0f, %d)",
+        String sql=String.format("INSERT INTO produtos(pro_nome, pro_preco, pro_estoque, cat_id) VALUES ('%s', %s, %d, %d)",
                 entidade.getNome(), preco, entidade.getEstoque(), entidade.getCategoria().getId());
         System.out.println(sql);
         return DBSingleton.getConexao().manipular(sql);
@@ -22,14 +22,15 @@ public class ProdutoDAL implements IDAL<Produto>{
 
     @Override
     public boolean alterar(Produto entidade) {
-        String sql=String.format("UPDATE produtos SET pro_nome='%s', pro_preco=%.2f, pro_estoque=%d, cat_id=%d WHERE pro_id=%d",
-                entidade.getNome(),entidade.getPreco(),entidade.getEstoque(),entidade.getCategoria().getId(),entidade.getId());
+        String preco = String.format("%.2f", entidade.getPreco()).replace(",", ".");
+        String sql=String.format("UPDATE produtos SET pro_nome='%s', pro_preco=%s, pro_estoque=%d, cat_id=%d WHERE pro_id=%d",
+                entidade.getNome(),preco,entidade.getEstoque(),entidade.getCategoria().getId(),entidade.getId());
         return DBSingleton.getConexao().manipular(sql);
     }
 
     @Override
     public boolean apagar(Produto entidade) {
-        return DBSingleton.getConexao().manipular("DELETE FROM produtos WHERE cat_id="+entidade.getId());
+        return DBSingleton.getConexao().manipular("DELETE FROM produtos WHERE pro_id="+entidade.getId());
     }
 
     @Override
@@ -41,7 +42,7 @@ public class ProdutoDAL implements IDAL<Produto>{
         try {
             if (rs.next()) {
                 produto = new Produto(rs.getInt("pro_id"), rs.getString("pro_nome"), new CategoriaDAL().get(rs.getInt("cat_id")),
-                        rs.getDouble("pro_preco"),rs.getDouble("pro_estoque"));
+                        rs.getDouble("pro_preco"),rs.getInt("pro_estoque"));
             }
         }catch(Exception e) { System.out.println(e); }
         return produto;
@@ -59,7 +60,7 @@ public class ProdutoDAL implements IDAL<Produto>{
         try {
             while (rs.next()) {
                 produtos.add(new Produto(rs.getInt("pro_id"), rs.getString("pro_nome"), new CategoriaDAL().get(rs.getInt("cat_id")),
-                        rs.getDouble("pro_preco"),rs.getDouble("pro_estoque")));
+                        rs.getDouble("pro_preco"),rs.getInt("pro_estoque")));
             }
         }catch(Exception e) { System.out.println(e); }
         return produtos;

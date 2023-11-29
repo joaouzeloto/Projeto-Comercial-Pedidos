@@ -5,6 +5,7 @@ import br.fipp.pedidosfx.db.dals.CategoriaDAL;
 import br.fipp.pedidosfx.db.dals.ProdutoDAL;
 import br.fipp.pedidosfx.db.entidades.Categoria;
 import br.fipp.pedidosfx.db.entidades.Produto;
+import br.fipp.pedidosfx.util.MaskFieldUtil;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,11 +29,19 @@ public class ProdutoCadViewController implements Initializable {
     public TextField tfNome;
     public TextField tfPreco;
     public TextField tfEstoque;
-    public TextField tfCategoria;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         carregarCategorias();
+        Platform.runLater(()->{tfNome.requestFocus();});
+        MaskFieldUtil.monetaryValueFromField(tfPreco);
+        if(ProdutoViewController.produto!=null)
+        {
+            tfId.setText(""+ProdutoViewController.produto.getId());
+            tfNome.setText(ProdutoViewController.produto.getNome());
+            tfPreco.setText(""+ProdutoViewController.produto.getPreco());
+            tfEstoque.setText(""+ProdutoViewController.produto.getEstoque());
+        }
     }
 
     private void carregarCategorias() {
@@ -50,8 +59,7 @@ public class ProdutoCadViewController implements Initializable {
 
     @FXML
     void onConfirmar(ActionEvent actionEvent) {
-        Categoria categoria = new Categoria();
-        categoria.setId(11);
+        Categoria categoria = (Categoria) cbCategoria.getValue();
         Produto produto = new Produto(tfNome.getText(),categoria,Double.parseDouble(tfPreco.getText()),Integer.parseInt(tfEstoque.getText()));
         ProdutoDAL dal = new ProdutoDAL();
         if(ProdutoViewController.produto==null)
