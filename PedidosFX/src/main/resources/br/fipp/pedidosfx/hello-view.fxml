@@ -8,14 +8,14 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.HelloController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.HelloController">
    <top>
       <VBox prefHeight="91.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar>
+            <MenuBar style="-fx-background-color: #6A5ACD;">
               <menus>
                 <Menu text="_CADASTROS">
                   <items>
@@ -54,13 +54,20 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <ToolBar prefHeight="68.0" prefWidth="800.0">
+            <ToolBar prefHeight="68.0" prefWidth="800.0" style="-fx-background-color: #363636;">
               <items>
-                <Button mnemonicParsing="false" onAction="#onNovoPedido" prefHeight="43.0" prefWidth="46.0" text="NP" />
-                  <Button layoutX="10.0" layoutY="17.0" mnemonicParsing="false" onAction="#onAbrirPedido" prefHeight="43.0" prefWidth="46.0" text="AP" />
+                <Button mnemonicParsing="false" onAction="#onNovoPedido" prefHeight="43.0" prefWidth="46.0" style="-fx-background-image: url('carrinho.png'); -fx-background-position: center center; -fx-background-repeat: no-repeat;" />
+                  <Button layoutX="10.0" layoutY="17.0" mnemonicParsing="false" onAction="#onAbrirPedido" prefHeight="43.0" prefWidth="46.0" style="-fx-background-image: url('busca.png'); -fx-background-position: center center; -fx-background-repeat: no-repeat;" />
               </items>
             </ToolBar>
          </children>
       </VBox>
    </top>
+   <bottom>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" style="-fx-background-image: url('logo.png'); -fx-background-position: center center; -fx-background-repeat: no-repeat; -fx-background-color: ligth_grey;" text="" textOverrun="CLIP" />
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>

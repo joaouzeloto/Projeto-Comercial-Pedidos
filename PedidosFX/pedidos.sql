@@ -31,12 +31,11 @@ CREATE TABLE public.categorias (
 );
 
 
-ALTER TABLE public.categorias OWNER TO admsqlfipp;
+ALTER TABLE public.categorias OWNER TO postgres;
 
 --
 -- Name: categorias_cat_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
-
 
 CREATE SEQUENCE public.categorias_cat_id_seq
     AS integer
@@ -47,17 +46,17 @@ CREATE SEQUENCE public.categorias_cat_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.categorias_cat_id_seq OWNER TO admsqlfipp;
+ALTER TABLE public.categorias_cat_id_seq OWNER TO postgres;
 
 --
--- Name: categorias_cat_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admsqlfipp
+-- Name: categorias_cat_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.categorias_cat_id_seq OWNED BY public.categorias.cat_id;
 
 
 --
--- Name: clientes; Type: TABLE; Schema: public; Owner: admsqlfipp
+-- Name: clientes; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.clientes (
@@ -73,10 +72,10 @@ CREATE TABLE public.clientes (
 );
 
 
-ALTER TABLE public.clientes OWNER TO admsqlfipp;
+ALTER TABLE public.clientes OWNER TO postgres;
 
 --
--- Name: clientes_cli_id_seq; Type: SEQUENCE; Schema: public; Owner: admsqlfipp
+-- Name: clientes_cli_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.clientes_cli_id_seq
@@ -88,17 +87,17 @@ CREATE SEQUENCE public.clientes_cli_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.clientes_cli_id_seq OWNER TO admsqlfipp;
+ALTER TABLE public.clientes_cli_id_seq OWNER TO postgres;
 
 --
--- Name: clientes_cli_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admsqlfipp
+-- Name: clientes_cli_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.clientes_cli_id_seq OWNED BY public.clientes.cli_id;
 
 
 --
--- Name: itens_pedidos; Type: TABLE; Schema: public; Owner: admsqlfipp
+-- Name: itens_pedidos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itens_pedidos (
@@ -110,10 +109,10 @@ CREATE TABLE public.itens_pedidos (
 );
 
 
-ALTER TABLE public.itens_pedidos OWNER TO admsqlfipp;
+ALTER TABLE public.itens_pedidos OWNER TO postgres;
 
 --
--- Name: itens_pedidos_itp_id_seq; Type: SEQUENCE; Schema: public; Owner: admsqlfipp
+-- Name: itens_pedidos_itp_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itens_pedidos_itp_id_seq
@@ -125,17 +124,17 @@ CREATE SEQUENCE public.itens_pedidos_itp_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itens_pedidos_itp_id_seq OWNER TO admsqlfipp;
+ALTER TABLE public.itens_pedidos_itp_id_seq OWNER TO postgres;
 
 --
--- Name: itens_pedidos_itp_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admsqlfipp
+-- Name: itens_pedidos_itp_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itens_pedidos_itp_id_seq OWNED BY public.itens_pedidos.itp_id;
 
 
 --
--- Name: pedidos; Type: TABLE; Schema: public; Owner: admsqlfipp
+-- Name: pedidos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.pedidos (
@@ -147,10 +146,10 @@ CREATE TABLE public.pedidos (
 );
 
 
-ALTER TABLE public.pedidos OWNER TO admsqlfipp;
+ALTER TABLE public.pedidos OWNER TO postgres;
 
 --
--- Name: pedidos_pro_id_seq; Type: SEQUENCE; Schema: public; Owner: admsqlfipp
+-- Name: pedidos_pro_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.pedidos_pro_id_seq
@@ -162,17 +161,17 @@ CREATE SEQUENCE public.pedidos_pro_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.pedidos_pro_id_seq OWNER TO admsqlfipp;
+ALTER TABLE public.pedidos_pro_id_seq OWNER TO postgres;
 
 --
--- Name: pedidos_pro_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admsqlfipp
+-- Name: pedidos_pro_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.pedidos_pro_id_seq OWNED BY public.pedidos.ped_id;
 
 
 --
--- Name: produtos; Type: TABLE; Schema: public; Owner: admsqlfipp
+-- Name: produtos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.produtos (
@@ -184,10 +183,10 @@ CREATE TABLE public.produtos (
 );
 
 
-ALTER TABLE public.produtos OWNER TO admsqlfipp;
+ALTER TABLE public.produtos OWNER TO postgres;
 
 --
--- Name: produtos_pro_id_seq; Type: SEQUENCE; Schema: public; Owner: admsqlfipp
+-- Name: produtos_pro_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.produtos_pro_id_seq
@@ -199,52 +198,52 @@ CREATE SEQUENCE public.produtos_pro_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.produtos_pro_id_seq OWNER TO admsqlfipp;
+ALTER TABLE public.produtos_pro_id_seq OWNER TO postgres;
 
 --
--- Name: produtos_pro_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admsqlfipp
+-- Name: produtos_pro_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.produtos_pro_id_seq OWNED BY public.produtos.pro_id;
 
 
 --
--- Name: categorias cat_id; Type: DEFAULT; Schema: public; Owner: admsqlfipp
+-- Name: categorias cat_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.categorias ALTER COLUMN cat_id SET DEFAULT nextval('public.categorias_cat_id_seq'::regclass);
 
 
 --
--- Name: clientes cli_id; Type: DEFAULT; Schema: public; Owner: admsqlfipp
+-- Name: clientes cli_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.clientes ALTER COLUMN cli_id SET DEFAULT nextval('public.clientes_cli_id_seq'::regclass);
 
 
 --
--- Name: itens_pedidos itp_id; Type: DEFAULT; Schema: public; Owner: admsqlfipp
+-- Name: itens_pedidos itp_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itens_pedidos ALTER COLUMN itp_id SET DEFAULT nextval('public.itens_pedidos_itp_id_seq'::regclass);
 
 
 --
--- Name: pedidos ped_id; Type: DEFAULT; Schema: public; Owner: admsqlfipp
+-- Name: pedidos ped_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.pedidos ALTER COLUMN ped_id SET DEFAULT nextval('public.pedidos_pro_id_seq'::regclass);
 
 
 --
--- Name: produtos pro_id; Type: DEFAULT; Schema: public; Owner: admsqlfipp
+-- Name: produtos pro_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.produtos ALTER COLUMN pro_id SET DEFAULT nextval('public.produtos_pro_id_seq'::regclass);
 
 
 --
--- Data for Name: categorias; Type: TABLE DATA; Schema: public; Owner: admsqlfipp
+-- Data for Name: categorias; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.categorias VALUES (1, 'hortifruti', 'frutas, verduras, legumes');
@@ -255,7 +254,7 @@ INSERT INTO public.categorias VALUES (5, 'frios', 'queijos e embutidos em geral'
 
 
 --
--- Data for Name: clientes; Type: TABLE DATA; Schema: public; Owner: admsqlfipp
+-- Data for Name: clientes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.clientes VALUES (1, 12155569344, 'Cleuzo Homero Reis', 'Rua Berimbau, 150', 'Vila Nivea', 'Tangará', '12160000', 'SP', 'cl@email.com.br');
@@ -263,19 +262,19 @@ INSERT INTO public.clientes VALUES (2, 54473111000155, 'Marta brinquedos', 'Av B
 
 
 --
--- Data for Name: itens_pedidos; Type: TABLE DATA; Schema: public; Owner: admsqlfipp
+-- Data for Name: itens_pedidos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: pedidos; Type: TABLE DATA; Schema: public; Owner: admsqlfipp
+-- Data for Name: pedidos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: produtos; Type: TABLE DATA; Schema: public; Owner: admsqlfipp
+-- Data for Name: produtos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.produtos VALUES (1, 'mussarela', 45.00, 100.0, 5);
@@ -293,42 +292,42 @@ INSERT INTO public.produtos VALUES (12, 'banana prata', 9.55, 10.0, 1);
 
 
 --
--- Name: categorias_cat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admsqlfipp
+-- Name: categorias_cat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.categorias_cat_id_seq', 5, true);
 
 
 --
--- Name: clientes_cli_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admsqlfipp
+-- Name: clientes_cli_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.clientes_cli_id_seq', 2, true);
 
 
 --
--- Name: itens_pedidos_itp_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admsqlfipp
+-- Name: itens_pedidos_itp_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.itens_pedidos_itp_id_seq', 1, false);
 
 
 --
--- Name: pedidos_pro_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admsqlfipp
+-- Name: pedidos_pro_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.pedidos_pro_id_seq', 1, false);
 
 
 --
--- Name: produtos_pro_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admsqlfipp
+-- Name: produtos_pro_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.produtos_pro_id_seq', 12, true);
 
 
 --
--- Name: categorias categorias_pkey; Type: CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: categorias categorias_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.categorias
@@ -336,7 +335,7 @@ ALTER TABLE ONLY public.categorias
 
 
 --
--- Name: clientes clientes_pkey; Type: CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: clientes clientes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.clientes
@@ -344,7 +343,7 @@ ALTER TABLE ONLY public.clientes
 
 
 --
--- Name: itens_pedidos itens_pedidos_pkey; Type: CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: itens_pedidos itens_pedidos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itens_pedidos
@@ -352,7 +351,7 @@ ALTER TABLE ONLY public.itens_pedidos
 
 
 --
--- Name: pedidos pedidos_pkey; Type: CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: pedidos pedidos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.pedidos
@@ -360,7 +359,7 @@ ALTER TABLE ONLY public.pedidos
 
 
 --
--- Name: produtos produtos_pkey; Type: CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: produtos produtos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.produtos
@@ -368,7 +367,7 @@ ALTER TABLE ONLY public.produtos
 
 
 --
--- Name: itens_pedidos itens_pedidos_ped_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: itens_pedidos itens_pedidos_ped_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itens_pedidos
@@ -376,7 +375,7 @@ ALTER TABLE ONLY public.itens_pedidos
 
 
 --
--- Name: itens_pedidos itens_pedidos_pro_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: itens_pedidos itens_pedidos_pro_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itens_pedidos
@@ -384,7 +383,7 @@ ALTER TABLE ONLY public.itens_pedidos
 
 
 --
--- Name: pedidos pedidos_cli_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: pedidos pedidos_cli_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.pedidos
@@ -392,7 +391,7 @@ ALTER TABLE ONLY public.pedidos
 
 
 --
--- Name: produtos produtos_cat_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: admsqlfipp
+-- Name: produtos produtos_cat_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.produtos
@@ -400,6 +399,6 @@ ALTER TABLE ONLY public.produtos
 
 
 --
--- admsqlfippQL database dump complete
+-- PostgreSQL database dump complete
 --
 
