@@ -1,7 +1,9 @@
 package br.fipp.pedidosfx;
 
 import br.fipp.pedidosfx.db.dals.CategoriaDAL;
+import br.fipp.pedidosfx.db.dals.ClienteDAL;
 import br.fipp.pedidosfx.db.entidades.Categoria;
+import br.fipp.pedidosfx.db.entidades.Cliente;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -11,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
@@ -23,6 +26,8 @@ import java.util.ResourceBundle;
 
 public class CategoriaViewController extends Application implements Initializable {
 
+    public static Categoria categoria=null;
+    public TextField tfPesquisa;
     public TableView<Categoria> tableView;
     public TableColumn <Categoria,Integer> colID;
     public TableColumn <Categoria, String> colNome;
@@ -66,29 +71,34 @@ public class CategoriaViewController extends Application implements Initializabl
     public void onPesquisarC(KeyEvent keyEvent) {
     }
 
-    public void onNovaCategoria(ActionEvent actionEvent) {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("categoria-cad-view.fxml"));
-        Scene scene = null;
-        try {
-            scene = new Scene(fxmlLoader.load());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Stage stage=new Stage();
-        stage.setTitle("Categoria-Cad");
-        stage.setScene(scene);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
+    public void onNovaCategoria(ActionEvent actionEvent) throws IOException {
+        abrirCategoria();
+        preencherTabela("");
     }
 
     public void onFechar(ActionEvent actionEvent) {
         ((Button)actionEvent.getSource()).getScene().getWindow().hide();
     }
 
-    public void onAlterar(ActionEvent actionEvent) {
+    public void onAlterar(ActionEvent actionEvent)throws IOException {
+        if(tableView.getSelectionModel().getSelectedIndex()>=0) {
+            categoria = tableView.getSelectionModel().getSelectedItem();
+            abrirCategoria();
+            preencherTabela("");
+            categoria=null;
+        }
+        preencherTabela("");
     }
 
-    public void onApagar(ActionEvent actionEvent) {
+    public void onApagar(ActionEvent actionEvent)
+    {
+        Categoria cate = tableView.getSelectionModel().getSelectedItem();
+        if(cate!=null)
+        {
+            //perguntar se deseja apagar realmente
+            new CategoriaDAL().apagar(cate);
+            preencherTabela("");
+        }
     }
 
 
@@ -104,4 +114,21 @@ public class CategoriaViewController extends Application implements Initializabl
         List<Categoria> categorias = new CategoriaDAL().get(filtro);
         tableView.setItems(FXCollections.observableArrayList(categorias));
     }
+
+
+        private void abrirCategoria() throws IOException
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("categoria-cad-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage=new Stage();
+            stage.setTitle("Categoria");
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        }
+
+
+
 }
+
+

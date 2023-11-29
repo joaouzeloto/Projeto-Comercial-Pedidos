@@ -24,7 +24,9 @@ import java.util.ResourceBundle;
 public class ClienteCadViewController implements Initializable {
     public TextField tfId;
     public TextField tfNome;
+    public TextField tfDocumento;
     public TextField tfCep;
+    public TextField tfCidade;
     public TextField tfEndereco;
     public TextField tfEmail;
 
@@ -32,18 +34,21 @@ public class ClienteCadViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(()->{tfNome.requestFocus();});
         MaskFieldUtil.cepField(tfCep);
+       // MaskFieldUtil.cpfField(tfDocumento);
         if (ClienteViewController.cliente!=null)
         {
             tfId.setText(""+ClienteViewController.cliente.getId());
             tfNome.setText(ClienteViewController.cliente.getNome());
+            tfDocumento.setText(Long.toString(ClienteViewController.cliente.getDocumento()));
             tfCep.setText(ClienteViewController.cliente.getCep());
+            tfCidade.setText(ClienteViewController.cliente.getCidade());
             tfEndereco.setText(ClienteViewController.cliente.getEndereco());
             tfEmail.setText(ClienteViewController.cliente.getEmail());
         }
     }
     public void onConfirmar(ActionEvent actionEvent) {
-        Cliente cliente = new Cliente(0,tfNome.getText(),tfEndereco.getText(),
-                                      "","",tfCep.getText(),"",tfEmail.getText());
+        Cliente cliente = new Cliente(Long.parseLong(tfDocumento.getText()),tfNome.getText(),tfEndereco.getText(),
+                                      "",tfCidade.getText(),tfCep.getText(),"",tfEmail.getText());
         if(ClienteViewController.cliente==null) {
             if (!new ClienteDAL().gravar(cliente)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

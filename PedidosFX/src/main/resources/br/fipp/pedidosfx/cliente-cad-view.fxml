@@ -36,12 +36,38 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
+      <Label layoutX="20.0" layoutY="20.0" text="Documento">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfDocumento" layoutX="20.0" layoutY="40.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </TextField>
       <Label layoutX="20.0" layoutY="81.0" text="CEP">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="tfCep" layoutX="20.0" layoutY="101.0" onKeyTyped="#onBuscarCep">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </TextField>
+      <Label text="Cidade">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfCidade">
          <font>
             <Font size="15.0" />
          </font>

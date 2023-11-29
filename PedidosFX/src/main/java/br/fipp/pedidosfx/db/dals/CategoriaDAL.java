@@ -8,12 +8,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class CategoriaDAL implements IDAL<Categoria> {
 
     @Override
     public boolean gravar(Categoria entidade) {
-        String sql=String.format("INSERT INTO categorias(cat_nome, cat_desc) VALUES (%s,%s)",
+        String sql=String.format("INSERT INTO categorias(cat_nome, cat_desc) VALUES ('%s','%s')",
                                   entidade.getNome(),entidade.getDescricao());
 
 //        String sql2=STR.process(
@@ -23,8 +22,8 @@ public class CategoriaDAL implements IDAL<Categoria> {
 
     @Override
     public boolean alterar(Categoria entidade) {
-        String sql=String.format("UPDATE categorias SET cat_nome='%s', cat_desc='%s' WHERE cat_id=%d)," +
-                        entidade.getId(),entidade.getNome(),entidade.getDescricao());
+        String sql=String.format("UPDATE categorias SET cat_nome='%s', cat_desc='%s' WHERE cat_id='%d')," +
+                        entidade.getNome(),entidade.getDescricao(),entidade.getId());
         return DBSingleton.getConexao().manipular(sql);
     }
 

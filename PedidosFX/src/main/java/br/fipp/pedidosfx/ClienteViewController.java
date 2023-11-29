@@ -29,13 +29,14 @@ public class ClienteViewController implements Initializable {
     public TableColumn <Cliente,Integer> colID;
     public TableColumn <Cliente, String> colNome;
     public TableColumn <Cliente, String> colCidade;
-    public TableColumn <Cliente, String> colTelefone;
+    public TableColumn <Cliente, String> colEmail;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colCidade.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         preencherTabela("");
     }
     private void preencherTabela(String filtro)
@@ -76,6 +77,7 @@ public class ClienteViewController implements Initializable {
     public void onFechar(ActionEvent actionEvent) {
         ((Button)actionEvent.getSource()).getScene().getWindow().hide();
     }
+
     private void abrirCadCliente() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cliente-cad-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

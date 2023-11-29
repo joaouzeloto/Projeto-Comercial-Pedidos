@@ -1,32 +1,60 @@
 package br.fipp.pedidosfx;
 
+import br.fipp.pedidosfx.db.DBSingleton;
 import br.fipp.pedidosfx.db.dals.CategoriaDAL;
 import br.fipp.pedidosfx.db.entidades.Categoria;
-import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CategoriaCadViewController extends Application {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    public TextField tfIdC;
+public class CategoriaCadViewController implements Initializable {
+
+    public TextField tfId;
     public TextField tfCategoria;
     public TextField tfDescricao;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     @Override
-    public void start(Stage primaryStage) {
-
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        Platform.runLater(()->{tfCategoria.requestFocus();});
+        if (CategoriaViewController.categoria!=null)
+        {
+            tfId.setText(""+CategoriaViewController.categoria.getId());
+            tfCategoria.setText(CategoriaViewController.categoria.getNome());
+            tfDescricao.setText(CategoriaViewController.categoria.getDescricao());
+        }
     }
 
     public void onConfirmar(ActionEvent actionEvent) {
         Categoria cat1 = new Categoria(tfCategoria.getText(),tfDescricao.getText());
         CategoriaDAL cat2 = new CategoriaDAL();
-        System.out.println(cat2.gravar(cat1));
+        if(CategoriaViewController.categoria==null)
+        {
+            if(!cat2.gravar(cat1))
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText(DBSingleton.getConexao().getMensagemErro());
+                alert.showAndWait();
+            }
+        }
+        else
+        {
+            cat1.setId(CategoriaViewController.categoria.getId());
+            if(!cat2.alterar(cat1))
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText(DBSingleton.getConexao().getMensagemErro());
+                alert.showAndWait();
+            }
+        }
         ((Button)actionEvent.getSource()).getScene().getWindow().hide();
     }
 
