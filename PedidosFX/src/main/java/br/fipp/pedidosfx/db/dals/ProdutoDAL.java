@@ -13,14 +13,16 @@ public class ProdutoDAL implements IDAL<Produto>{
 
     @Override
     public boolean gravar(Produto entidade) {
-        String sql=String.format(Locale.US,"INSERT INTO produtos(pro_nome, pro_preco, pro_estoque, cat_id) VALUES (%d, '%s', %.2f, %d, %d)",
-                entidade.getNome(),entidade.getPreco(),entidade.getEstoque(),entidade.getCategoria().getId());
+        String preco = String.format("%.2f", entidade.getPreco()).replace(",", ".");
+        String sql=String.format("INSERT INTO produtos(pro_nome, pro_preco, pro_estoque, cat_id) VALUES ('%s', %s, %.0f, %d)",
+                entidade.getNome(), preco, entidade.getEstoque(), entidade.getCategoria().getId());
+        System.out.println(sql);
         return DBSingleton.getConexao().manipular(sql);
     }
 
     @Override
     public boolean alterar(Produto entidade) {
-        String sql=String.format(Locale.US,"UPDATE produtos SET pro_nome='%s', pro_preco=%.2f, pro_estoque=%d, cat_id=%d WHERE pro_id=%d",
+        String sql=String.format("UPDATE produtos SET pro_nome='%s', pro_preco=%.2f, pro_estoque=%d, cat_id=%d WHERE pro_id=%d",
                 entidade.getNome(),entidade.getPreco(),entidade.getEstoque(),entidade.getCategoria().getId(),entidade.getId());
         return DBSingleton.getConexao().manipular(sql);
     }

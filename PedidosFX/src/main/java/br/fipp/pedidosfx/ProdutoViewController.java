@@ -28,6 +28,8 @@ import java.util.ResourceBundle;
 public class ProdutoViewController implements Initializable {
     public TextField tfPesquisa;
 
+    public static Produto produto=null;
+
     @FXML
     private TableColumn<Produto, Categoria> colCategoria;
 
@@ -63,15 +65,16 @@ public class ProdutoViewController implements Initializable {
 
 
     public void onNovoCliente(ActionEvent actionEvent) throws IOException {
-        abrirCadProduto();
-
+        abrirProduto();
+        preencherTabela("");
     }
 
     public void onPesquisar(KeyEvent keyEvent) {
     }
 
     public void onAlterar(ActionEvent actionEvent) throws IOException {
-        abrirCadProduto();
+        abrirProduto();
+        preencherTabela("");
     }
 
     public void onApagar(ActionEvent actionEvent) {
@@ -80,13 +83,16 @@ public class ProdutoViewController implements Initializable {
     public void onFechar(ActionEvent actionEvent) {
         ((Button)actionEvent.getSource()).getScene().getWindow().hide();
     }
-    private void abrirCadProduto() throws IOException {
+
+    private void abrirProduto() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("produto-cad-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage=new Stage();
-        stage.setTitle("Produtos");
+        stage.setTitle("Produto");
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
+
+
 }
