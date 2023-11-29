@@ -22,8 +22,9 @@ public class CategoriaDAL implements IDAL<Categoria> {
 
     @Override
     public boolean alterar(Categoria entidade) {
-        String sql=String.format("UPDATE categorias SET cat_nome='%s', cat_desc='%s' WHERE cat_id='%d')," +
-                        entidade.getNome(),entidade.getDescricao(),entidade.getId());
+        String sql= "UPDATE categorias SET cat_nome='#1', cat_desc='#2' WHERE cat_id="+entidade.getId();
+        sql=sql.replace("#1",entidade.getNome());
+        sql=sql.replace("#2",entidade.getDescricao());
         return DBSingleton.getConexao().manipular(sql);
     }
 
