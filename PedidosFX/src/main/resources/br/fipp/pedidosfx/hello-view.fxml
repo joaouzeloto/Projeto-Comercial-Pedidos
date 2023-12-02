@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #E7E0D9; -fx-background-image: url('trechoBebidas.png'); -fx-background-position: center center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.HelloController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #E7E0D9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.HelloController">
    <top>
       <VBox prefHeight="91.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
@@ -63,11 +63,7 @@
          </children>
       </VBox>
    </top>
-   <bottom>
-      <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" style="-fx-background-image: url('logo.png'); -fx-background-position: center center; -fx-background-repeat: no-repeat; -fx-background-color: ligth_grey;" text="" textOverrun="CLIP" />
-         </children>
-      </HBox>
-   </bottom>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" style="-fx-background-color: #E7E0D9; -fx-background-image: url('trechoBebidas.png'); -fx-background-position: center center; -fx-background-repeat: no-repeat;"/>
+   </center>
 </BorderPane>
