@@ -75,12 +75,12 @@
       </ComboBox>
       <HBox alignment="CENTER" prefHeight="67.0" prefWidth="480.0" spacing="80.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#onConfirmar" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: lightblue;" text="Confirmar">
+            <Button mnemonicParsing="false" onAction="#onConfirmar" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #411C9E;" text="Confirmar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="201.0" layoutY="22.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: orange;" text="Cancelar">
+            <Button layoutX="201.0" layoutY="22.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #A50800;" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

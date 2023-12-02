@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="625.0" prefWidth="777.0" spacing="10.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.ProdutoViewController">
+<VBox alignment="CENTER" prefHeight="625.0" prefWidth="777.0" spacing="10.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.fipp.pedidosfx.ProdutoViewController">
    <children>
       <HBox alignment="CENTER" spacing="10.0">
          <children>
@@ -19,14 +19,14 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" onAction="#onNovoCliente" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: lightblue;" text="+">
+            <Button mnemonicParsing="false" onAction="#onNovoCliente" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #411C9E;" text="+" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tableView" prefHeight="525.0" prefWidth="629.0">
+      <TableView fx:id="tableView" prefHeight="525.0" prefWidth="629.0" style="-fx-background-color: #E7E0D9;">
         <columns>
           <TableColumn fx:id="colID" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" />
           <TableColumn fx:id="colNome" minWidth="200.0" prefWidth="-1.0" text="Nome" />
@@ -46,9 +46,9 @@
             </ContextMenu>
          </contextMenu>
       </TableView>
-      <Button mnemonicParsing="false" onAction="#onFechar" prefHeight="30.0" prefWidth="127.0" style="-fx-background-color: white;" text="Fechar">
+      <Button mnemonicParsing="false" onAction="#onFechar" prefHeight="30.0" prefWidth="127.0" style="-fx-background-color: #A50800;" text="Fechar" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font></Button>
    </children>
 </VBox>

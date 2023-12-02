@@ -19,7 +19,7 @@
    <children>
       <TitledPane animated="false" collapsible="false" prefHeight="132.0" prefWidth="943.0" style="-fx-border-color: black; -fx-border-width: 1;" text="DADOS DO PEDIDO">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #757575;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: black;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" text="Cliente:" textFill="WHITE">
                      <font>
@@ -55,7 +55,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbTotalPedido" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="757.0" layoutY="47.0" prefHeight="43.0" prefWidth="177.0" text="0,00" textAlignment="RIGHT" textFill="#d0b7f5">
+                  <Label fx:id="lbTotalPedido" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="757.0" layoutY="47.0" prefHeight="43.0" prefWidth="177.0" text="0,00" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font name="Consolas" size="30.0" />
                      </font>
@@ -72,7 +72,7 @@
       </TitledPane>
       <TitledPane animated="false" collapsible="false" layoutX="10.0" layoutY="10.0" prefHeight="161.0" prefWidth="963.0" text="ITENS DO PEDIDO">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #95A3ED;">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E7E0D9;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" text="Produto:">
                      <font>
@@ -113,12 +113,12 @@
                      </font>
                   </TextField>
                   <Spinner fx:id="spQuantidade" layoutX="436.0" layoutY="56.0" onMouseClicked="#onAdicionar" prefHeight="30.0" style="-fx-text-size: 14;" />
-                  <Button layoutX="839.0" layoutY="97.0" mnemonicParsing="false" onAction="#onInserirProduto" prefHeight="27.0" prefWidth="40.0" style="-fx-background-color: royalblue;" text="+">
+                  <Button layoutX="839.0" layoutY="97.0" mnemonicParsing="false" onAction="#onInserirProduto" prefHeight="27.0" prefWidth="40.0" style="-fx-background-color: #411C9E;" text="+" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Button layoutX="899.0" layoutY="97.0" mnemonicParsing="false" onAction="#onRemoverProduto" prefHeight="27.0" prefWidth="40.0" style="-fx-background-color: salmon;" text="-">
+                  <Button layoutX="899.0" layoutY="97.0" mnemonicParsing="false" onAction="#onRemoverProduto" prefHeight="27.0" prefWidth="40.0" style="-fx-background-color: #A50800;" text="-" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -130,7 +130,7 @@
             <Font size="14.0" />
          </font>
       </TitledPane>
-      <TableView fx:id="tableview" prefHeight="302.0" prefWidth="963.0" style="-fx-background-color: #95A3ED;">
+      <TableView fx:id="tableview" prefHeight="302.0" prefWidth="963.0" style="-fx-background-color: #E7E0D9;">
         <columns>
           <TableColumn fx:id="colProduto" prefWidth="75.0" text="Produto" />
           <TableColumn fx:id="colQuant" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Quantidade" />
@@ -142,14 +142,14 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="53.0" prefWidth="963.0" spacing="48.0" style="-fx-background-color: gray;">
          <children>
-            <Button mnemonicParsing="false" onAction="#onConfirmar" prefHeight="32.0" prefWidth="140.0" style="-fx-background-color: royalblue;" text="Confirmar" textFill="#fcf7f7">
+            <Button mnemonicParsing="false" onAction="#onConfirmar" prefHeight="32.0" prefWidth="140.0" style="-fx-background-color: #411C9E;" text="Confirmar" textFill="#fcf7f7">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="422.0" layoutY="23.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: salmon;" text="Cancelar" textFill="#fcf7f7">
+            <Button layoutX="422.0" layoutY="23.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #A50800;" text="Cancelar" textFill="#fcf7f7">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Button>
          </children>
