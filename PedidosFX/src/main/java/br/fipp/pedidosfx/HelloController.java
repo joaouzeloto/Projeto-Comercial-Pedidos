@@ -80,18 +80,25 @@ public class HelloController implements Initializable {
         stage.showAndWait();
     }
 
-    public void onAbrirPedido(ActionEvent actionEvent) {
-        List<Pedido> pedidos = new PedidoDAL().get("");
-        ModalTable mt=new ModalTable(pedidos,new String[]{"id","cliente","data"},"data");
+    public void onAbrirPedido(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pedido-pesquisa-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
         Stage stage=new Stage();
-        stage.setScene(new Scene(mt));
-        stage.setWidth(600); stage.setHeight(480); //stage.initStyle(StageStyle.UNDECORATED);
+        stage.setTitle("Novo Pedido");
+        stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
+        //List<Pedido> pedidos = new PedidoDAL().get("");
+        //ModalTable mt=new ModalTable(pedidos,new String[]{"id","cliente","data"},"data");
+        //Stage stage=new Stage();
+        //stage.setScene(new Scene(mt));
+        //stage.setWidth(600); stage.setHeight(480); //stage.initStyle(StageStyle.UNDECORATED);
+        //stage.initModality(Modality.APPLICATION_MODAL);
+        //stage.showAndWait();
 
-        Pedido pedido = (Pedido)mt.getSelecionado();
-        if (pedido!=null)
-            System.out.println(pedido.getCliente().getNome());
+        //Pedido pedido = (Pedido)mt.getSelecionado();
+        //if (pedido!=null)
+            //System.out.println(pedido.getCliente().getNome());
     }
 
     public void onRelClientes(ActionEvent actionEvent) {

@@ -9,6 +9,7 @@ public class Pedido {
     private Cliente cliente;
     private LocalDate data;
     private double frete;
+    private double pedidoTotal;
     private List<Item> itens;
 
     public Pedido() {
@@ -21,6 +22,23 @@ public class Pedido {
         this.data = data;
         this.frete = frete;
         itens=new ArrayList<>();
+    }
+
+    public double getPedidoTotal() {
+        return pedidoTotal;
+    }
+
+    public void setPedidoTotal(double pedidoTotal) {
+        this.pedidoTotal = pedidoTotal;
+    }
+
+    public Pedido(int id, Cliente cliente, LocalDate data, double frete, double total) {
+        this.id = id;
+        this.cliente = cliente;
+        this.data = data;
+        this.frete = frete;
+        itens=new ArrayList<>();
+        this.pedidoTotal = total;
     }
 
     public Pedido(Cliente cliente, LocalDate data, double frete) {

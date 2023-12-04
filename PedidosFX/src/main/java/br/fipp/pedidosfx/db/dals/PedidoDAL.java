@@ -59,7 +59,7 @@ public class PedidoDAL implements IDAL <Pedido>{
         try {
             while (rs.next()) {
                 pedidos.add(new Pedido(rs.getInt("ped_id"), new ClienteDAL().get(rs.getInt("cli_id")),
-                                       rs.getDate("ped_data").toLocalDate(),rs.getDouble("ped_frete")));
+                                       rs.getDate("ped_data").toLocalDate(),rs.getDouble("ped_frete"),rs.getDouble("ped_total")));
             }
         }catch(Exception e) { System.out.println(e); }
         return pedidos;
