@@ -39,7 +39,8 @@ public class PedidoDAL implements IDAL <Pedido>{
 
     @Override
     public boolean apagar(Pedido entidade) {
-        return false;
+        DBSingleton.getConexao().manipular("DELETE FROM itens_pedidos where ped_id="+entidade.getId());
+        return DBSingleton.getConexao().manipular("DELETE FROM pedidos where ped_id="+entidade.getId());
     }
 
     @Override

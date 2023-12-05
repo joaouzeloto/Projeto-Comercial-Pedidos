@@ -64,6 +64,6 @@
       </VBox>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" style="-fx-background-color: #E7E0D9; -fx-background-image: url('trechoBebidas.png'); -fx-background-position: center center; -fx-background-repeat: no-repeat;"/>
+      <HBox alignment="CENTER" prefHeight="523.0" prefWidth="800.0" style="-fx-background-color: #E7E0D9; -fx-background-image: url('trechoBebidas.png'); -fx-background-position: center center; -fx-background-repeat: no-repeat;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
