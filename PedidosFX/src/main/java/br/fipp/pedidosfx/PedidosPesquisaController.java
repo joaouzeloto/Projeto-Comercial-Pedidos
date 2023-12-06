@@ -85,7 +85,7 @@ public class PedidosPesquisaController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("verMais-pedidos-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage=new Stage();
-        stage.setTitle("Novo Pedido");
+        stage.setTitle("Pedido Detalhado");
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();

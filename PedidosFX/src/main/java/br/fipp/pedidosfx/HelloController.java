@@ -84,21 +84,10 @@ public class HelloController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pedido-pesquisa-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage=new Stage();
-        stage.setTitle("Novo Pedido");
+        stage.setTitle("Pedidos");
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
-        //List<Pedido> pedidos = new PedidoDAL().get("");
-        //ModalTable mt=new ModalTable(pedidos,new String[]{"id","cliente","data"},"data");
-        //Stage stage=new Stage();
-        //stage.setScene(new Scene(mt));
-        //stage.setWidth(600); stage.setHeight(480); //stage.initStyle(StageStyle.UNDECORATED);
-        //stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.showAndWait();
-
-        //Pedido pedido = (Pedido)mt.getSelecionado();
-        //if (pedido!=null)
-            //System.out.println(pedido.getCliente().getNome());
     }
 
     public void onRelClientes(ActionEvent actionEvent) {
@@ -112,7 +101,7 @@ public class HelloController implements Initializable {
 
     public void onSobre(ActionEvent actionEvent) {
         Alert alert=new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("PedidosFX\nversão 0.1\nDesenvolvido por:\nSilvio Carro");
+        alert.setContentText("PedidosFX\nversão 1.0\nDesenvolvido por:\nJoão Uzeloto\nHumberto Stuani\nDiego Godoy");
         alert.showAndWait();
     }
 
